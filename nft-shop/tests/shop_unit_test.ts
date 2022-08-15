@@ -27,3 +27,22 @@ function mintFt({ chain, deployer, amount, recipient, paymentAssetContract = def
     const [paymentAssetContractPrincipal, paymentAssetId] = ftMintEvent.asset_identifier.split('::');
     return { paymentAssetContract: paymentAssetContractPrincipal, paymentAssetId, block };
 }
+
+interface Sip009NftTransferEvent {
+    type: string,
+    nft_transfer_event: {
+        asset_identifier: string,
+        sender: string,
+        recipient: string,
+        value: string
+    }
+}
+
+function assertNftTransfer(event: Sip009NftTransferEvent, nftAssetContract: string, tokenId: number, sender: string, recipient: string) {
+    assertEquals(typeof event, 'object');
+    assertEquals(event.type, 'nft_transfer_event');
+    assertEquals(event.nft_transfer_event.asset_identifier.substr(0, nftAssetContract.length), nftAssetContract);
+    event.nft_transfer_event.sender.expectPrincipal(sender);
+    event.nft_transfer_event.recipient.expectPrincipal(recipient);
+    event.nft_transfer_event.value.expectUint(tokenId);
+}
