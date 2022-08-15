@@ -46,3 +46,20 @@ function assertNftTransfer(event: Sip009NftTransferEvent, nftAssetContract: stri
     event.nft_transfer_event.recipient.expectPrincipal(recipient);
     event.nft_transfer_event.value.expectUint(tokenId);
 }
+interface Order {
+	taker?: string,
+	tokenId: number,
+	expiry: number,
+	price: number,
+	paymentAssetContract?: string
+}
+
+const makeOrder = (order: Order) =>
+	types.tuple({
+		'taker': order.taker ? types.some(types.principal(order.taker)) : types.none(),
+		'token-id': types.uint(order.tokenId),
+		'expiry': types.uint(order.expiry),
+		'price': types.uint(order.price),
+		'payment-asset-contract': order.paymentAssetContract ? types.some(types.principal(order.paymentAssetContract)) : types.none(),
+	});
+    
