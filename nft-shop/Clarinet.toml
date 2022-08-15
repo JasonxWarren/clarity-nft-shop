@@ -8,14 +8,20 @@ boot_contracts = ["pox", "costs-v2", "bns"]
 
 [project.cache_location]
 path = ".requirements"
-[contracts.010-token-trait]
-path = "contracts/010-token-trait.clar"
-
 [contracts.nft-trait]
 path = "contracts/nft-trait.clar"
 
 [contracts.shop]
 path = "contracts/shop.clar"
+
+[contracts.sip-010-trait-ft-standard]
+path = "contracts/sip-010-trait-ft-standard.clar"
+
+[contracts.sip009-nft-trait]
+path = "contracts/sip009-nft-trait.clar"
+
+[contracts.sip010-ft-trait]
+path = "contracts/sip010-ft-trait.clar"
 
 [repl]
 costs_version = 2
