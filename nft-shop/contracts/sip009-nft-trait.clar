@@ -42,7 +42,7 @@
 ;; check to see if you now on own it (contract-call? .sip009-nft-trait get-owner u1)
 
 ;; whitelist contract (contract-call? .shop set-whitelisted .test-sip009 true)
-;; (contract-call? .tiny-market set-whitelisted .sip009-nft-trait true)
+;; (contract-call? .shop set-whitelisted .sip009-nft-trait true)
 
 ;; (contract-call? .shop list-asset .sip009-nft-trait {taker: none, token-id: u1, expiry: u500, price: u1000, payment-asset-contract: none})
 

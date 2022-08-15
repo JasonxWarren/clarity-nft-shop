@@ -115,3 +115,14 @@
 		(ok listing-id)
 	)
 )
+
+;; give it a try clarinet console then it can
+;; mint an nft (contract-call? .sip009-nft-trait mint tx-sender)
+;; whitelist (contract-call? .shop set-whitelisted .sip009-nft-trait true)
+;; list nft (contract-call? .shop list-asset .sip009-nft-trait {taker: none, token-id: u1, expiry: u500, price: u150, payment-asset-contract: none})
+
+;; ::set_tx_sender 
+;; purchasing nft from the shop
+;; (contract-call? 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.shop fulfil-listing-stx u0 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.sip009-nft-trait)
+
+;; ::get_assets_maps
