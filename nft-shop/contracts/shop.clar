@@ -126,3 +126,9 @@
 ;; (contract-call? 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.shop fulfil-listing-stx u0 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.sip009-nft-trait)
 
 ;; ::get_assets_maps
+
+;; mint some ft (contract-call? .sip010-ft-trait mint u1000 'ST1SJ3DTE5DN7X54YDH5D64R3BCB6A2AG2ZQ8YPD5)
+;; (contract-call? .shop set-whitelisted .sip010-ft-trait true)
+;; (contract-call? .shop list-asset .sip009-nft-trait {taker: none, token-id: u2, expiry: u500, price: u800, payment-asset-contract: (some .sip010-ft-trait)})
+
+;; (contract-call? 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.shop fulfil-listing-ft u1 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.sip009-nft-trait 'ST1PQHQKV0RJXZFY1DGX8MNSNYVE3VGZJSRTPGZGM.sip010-ft-trait)
