@@ -20,7 +20,13 @@ path = "contracts/sip-010-trait-ft-standard.clar"
 [contracts.sip009-nft-trait]
 path = "contracts/sip009-nft-trait.clar"
 
+[contracts.bogus-nft]
+path = "contracts/sip009-nft.clar"
+
 [contracts.sip010-ft-trait]
+path = "contracts/sip010-ft-trait.clar"
+
+[contracts.bogus-ft]
 path = "contracts/sip010-ft-trait.clar"
 
 [repl]
