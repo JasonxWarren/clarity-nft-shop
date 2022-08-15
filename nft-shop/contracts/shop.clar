@@ -17,3 +17,31 @@
 (define-constant err-unintended-taker (err u2006))
 (define-constant err-asset-contract-not-whitelisted (err u2007))
 (define-constant err-payment-contract-not-whitelisted (err u2008))
+
+(define-map listings
+	uint
+	{
+		maker: principal,
+		taker: (optional principal),
+		token-id: uint,
+		nft-asset-contract: principal,
+		expiry: uint,
+		price: uint,
+		payment-asset-contract: (optional principal)
+	}
+)
+
+(define-data-var listing-nonce uint u0)
+
+(define-map whitelisted-asset-contracts principal bool)
+
+(define-read-only (is-whitelisted (asset-contract principal))
+	(default-to false (map-get? whitelisted-asset-contracts asset-contract))
+)
+
+(define-public (set-whitelisted (asset-contract principal) (whitelisted bool))
+	(begin
+		(asserts! (is-eq contract-owner tx-sender) err-unauthorised)
+		(ok (map-set whitelisted-asset-contracts asset-contract whitelisted))
+	)
+)
